@@ -510,6 +510,7 @@
 				57FB906718D942890084EEFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		57FB906818D942890084EEFA /* Build configuration list for PBXNativeTarget "Moubarak_Jamal_MDF2_Project3Tests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +519,7 @@
 				57FB906A18D942890084EEFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

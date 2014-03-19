@@ -8,9 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
+    UIImagePickerController *pickerController;
     
+    UIImage *originalImage;
+    UIImage *scaledImage;
+    NSURL *urlString;
+    NSString *videoURL;
+    UIAlertView *alertView;
 }
+
+-(IBAction)onSelfie:(id)sender;
+-(IBAction)onVideo:(id)sender;
+-(IBAction)onAlbum:(id)sender;
 
 @end

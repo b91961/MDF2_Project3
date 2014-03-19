@@ -23,7 +23,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="C2l-Z0-oNx" kind="modal" id="4Z2-5J-ruz"/>
+                                    <action selector="onSelfie:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LZL-7h-yIw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTW-84-1Xz">
@@ -32,6 +32,9 @@
                                 <state key="normal" backgroundImage="videoButton.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onVideo:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Mdt-2Z-Rnm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IdJ-xe-Jz2">
                                 <rect key="frame" x="20" y="286" width="280" height="100"/>
@@ -39,6 +42,9 @@
                                 <state key="normal" backgroundImage="albumButton.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onAlbum:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dfe-VK-RVw"/>
+                                </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="instructions.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hdj-u2-9Sr">
                                 <rect key="frame" x="20" y="410" width="280" height="130"/>
@@ -54,11 +60,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="59" y="515"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="pPR-AR-lIi">
             <objects>
-                <viewController id="C2l-Z0-oNx" customClass="ImageViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="imageView" id="C2l-Z0-oNx" customClass="ImageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pFS-Vk-le2"/>
                         <viewControllerLayoutGuide type="bottom" id="o6v-Ec-eJQ"/>
@@ -90,6 +97,9 @@
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onSave:" destination="C2l-Z0-oNx" eventType="touchUpInside" id="q9D-DU-VY8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7VW-Gz-wGP">
                                 <rect key="frame" x="98" y="518" width="50" height="30"/>
@@ -99,7 +109,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="fa9-6a-tUH" kind="unwind" unwindAction="done:" id="mOt-jW-FsR"/>
+                                    <action selector="onCancel:" destination="C2l-Z0-oNx" eventType="touchUpInside" id="nt9-1V-Mu8"/>
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="selfieHeader.png" translatesAutoresizingMaskIntoConstraints="NO" id="LLt-JT-biw">
@@ -110,11 +120,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="xlg-D3-t98"/>
+                    <connections>
+                        <outlet property="originalImageView" destination="YNS-4P-sIg" id="umP-dx-zeW"/>
+                        <outlet property="scaledImageView" destination="S5a-dY-BdQ" id="7uK-Xb-AbU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vgq-Vc-Rtt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="fa9-6a-tUH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="572" y="74"/>
+            <point key="canvasLocation" x="619" y="515"/>
         </scene>
     </scenes>
     <resources>

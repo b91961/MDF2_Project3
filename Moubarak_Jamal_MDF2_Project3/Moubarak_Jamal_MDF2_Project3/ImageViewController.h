@@ -10,7 +10,14 @@
 
 @interface ImageViewController : UIViewController
 {
-    
+    IBOutlet UIImageView *originalImageView;
+    IBOutlet UIImageView *scaledImageView;
 }
+
+-(IBAction)onSave:(id)sender;
+-(IBAction)onCancel:(id)sender;
+
+@property(nonatomic, strong)UIImage *original;
+@property(nonatomic, strong)UIImage *scaled;
 
 @end
