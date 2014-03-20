@@ -16,7 +16,7 @@
     UIImage *scaledImage;
     NSURL *urlString;
     NSString *videoURL;
-    UIAlertView *alertView;
+    UIAlertView *alert;
 }
 
 -(IBAction)onSelfie:(id)sender;

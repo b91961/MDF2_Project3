@@ -12,6 +12,8 @@
 {
     IBOutlet UIImageView *originalImageView;
     IBOutlet UIImageView *scaledImageView;
+    
+    UIAlertView *alert;
 }
 
 -(IBAction)onSave:(id)sender;

@@ -18,14 +18,14 @@
 
 -(IBAction)onSelfie:(id)sender
 {
+    // Picker controller for image capture using camera
     pickerController = [[UIImagePickerController alloc] init];
     if (pickerController != nil)
     {
         pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-        
         pickerController.delegate = self;
-        
         pickerController.allowsEditing = true;
+        pickerController.cameraDevice = UIImagePickerControllerCameraDeviceFront;
         
         [self presentViewController:pickerController animated:true completion:nil];
     }
@@ -33,17 +33,14 @@
 
 -(IBAction)onVideo:(id)sender
 {
+    // Picker controller for movies
     pickerController = [[UIImagePickerController alloc] init];
     if (pickerController != nil)
     {
         pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-        
         pickerController.delegate = self;
-        
         pickerController.allowsEditing = false;
-        
         pickerController.videoQuality = UIImagePickerControllerQualityTypeMedium;
-        
         pickerController.mediaTypes = [NSArray arrayWithObjects:(NSString *)kUTTypeMovie, nil];
         
         [self presentViewController:pickerController animated:true completion:nil];
@@ -52,13 +49,12 @@
 
 -(IBAction)onAlbum:(id)sender
 {
+    //Picker controller to access album
     pickerController = [[UIImagePickerController alloc] init];
     if (pickerController != nil)
     {
         pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        
         pickerController.delegate = self;
-        
         pickerController.allowsEditing = true;
         
         [self presentViewController:pickerController animated:true completion:nil];
@@ -73,6 +69,7 @@
     
     if (originalImage != nil)
     {
+        // Send images over to ImageViewController
         ImageViewController *imageView = [self.storyboard instantiateViewControllerWithIdentifier:@"imageView"];
         if (imageView != nil)
         {
@@ -85,6 +82,7 @@
     }
     else if (urlString != nil)
     {
+        // Save movie to album
         videoURL = [urlString path];
         UISaveVideoAtPathToSavedPhotosAlbum(videoURL, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
     }
@@ -94,25 +92,29 @@
 {
     if (error != nil)
     {
-        [self newAlert:@"Error saving SELFIE VIDEO!."];
+        // Error alert for movie
+        [self myAlert:@"Error saving SELFIE VIDEO!"];
     }
     else
     {
-        [self newAlert:@"SELFIE VIDEO! has been saved."];
+        // Success alert for movies
+        [self myAlert:@"SELFIE VIDEO! has been saved"];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
 
-- (void)newAlert:(NSString *)alert
+- (void)myAlert:(NSString *)alertView
 {
-    alertView = [[UIAlertView alloc]initWithTitle:@""
-                                                       message:alert
-                                                      delegate:nil
-                                             cancelButtonTitle:@"OK"
-                                             otherButtonTitles:nil];
-    if (alertView != nil)
+    //My alert view
+    alert = [[UIAlertView alloc]
+                 initWithTitle:alertView
+                 message:nil
+                 delegate:nil
+                 cancelButtonTitle:@"OK"
+                 otherButtonTitles:nil];
+    if (alert != nil)
     {
-        [alertView show];
+        [alert show];
     }
 }
 

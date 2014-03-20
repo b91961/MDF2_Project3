@@ -25,6 +25,7 @@
 
 - (void)viewDidLoad
 {
+    // Set the original and scaled images
     originalImageView.image = _original;
     scaledImageView.image = _scaled;
     
@@ -40,6 +41,7 @@
 
 -(IBAction)onSave:(id)sender
 {
+    // Save the images to the album
     UIImageWriteToSavedPhotosAlbum(_original, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
     
     UIImageWriteToSavedPhotosAlbum(_scaled, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
@@ -47,31 +49,36 @@
 
 -(IBAction)onCancel:(id)sender
 {
+    // Cancel and dismiss the viewController
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
+    //Show alert if there is an error
     if (error != nil)
     {
-        [self newAlert:@"Error saving image."];
+        [self myAlert:@"Error saving SELFIE!"];
     }
     else{
-        [self newAlert:@"Photos were saved to album."];
+        //Show alert on success
+        [self myAlert:@"SELFIE has been saved"];
     }
          [self dismissViewControllerAnimated:YES completion:nil];
 }
          
-- (void)newAlert:(NSString *)alert
+- (void)myAlert:(NSString *)alertView
 {
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@""
-                                                       message:alert
-                                                      delegate:nil
-                                             cancelButtonTitle:@"OK"
-                                             otherButtonTitles:nil];
-    if (alertView != nil)
+    //My alert view
+    alert = [[UIAlertView alloc]
+             initWithTitle:alertView
+             message:nil
+             delegate:nil
+             cancelButtonTitle:@"OK"
+             otherButtonTitles:nil];
+    if (alert != nil)
     {
-        [alertView show];
+        [alert show];
     }
 }
 
